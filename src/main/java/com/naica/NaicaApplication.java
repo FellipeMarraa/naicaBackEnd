@@ -10,6 +10,8 @@ public class NaicaApplication {
 		SpringApplication.run(NaicaApplication.class, args);
 		
 		System.out.println("BANCO RODANDO");
+
+
 	}
 
 }
