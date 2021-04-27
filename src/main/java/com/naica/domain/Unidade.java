@@ -36,10 +36,11 @@ public class Unidade {
 		super();
 	}
 
-	public Unidade(Integer id, String nome, String endereco) {
+	public Unidade(Integer id, String nome, Coordenador coordenador, String endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.coordenador = coordenador;
 		this.endereco = endereco;
 	}
 

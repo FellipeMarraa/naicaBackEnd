@@ -82,6 +82,7 @@ public class UnidadeService {
 
         newUnidade.setNome(unidade.getNome());
         newUnidade.setEndereco(unidade.getEndereco());
+        newUnidade.setCoordenador(unidade.getCoordenador());
     }
 
 
@@ -91,7 +92,7 @@ public class UnidadeService {
 
     public Unidade fromDTO(UnidadeNewDTO unidadeNewDTO) {
 
-         Unidade unidade = new Unidade(null, unidadeNewDTO.getNome(), unidadeNewDTO.getEndereco());
+         Unidade unidade = new Unidade(null, unidadeNewDTO.getNome(), unidadeNewDTO.getCoordenador(), unidadeNewDTO.getEndereco());
 
          return unidade;
 

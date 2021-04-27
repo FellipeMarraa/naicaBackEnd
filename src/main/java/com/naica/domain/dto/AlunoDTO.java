@@ -2,11 +2,14 @@ package com.naica.domain.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.naica.domain.Responsavel;
+import com.naica.domain.Unidade;
 import com.naica.services.validation.AlunoUpdate;
 
 @AlunoUpdate
@@ -18,6 +21,7 @@ public class AlunoDTO implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private Unidade unidade;
 	private Date dataNascimento;
 	private Integer idadeAtual;
 	private Integer idadeInicial;
@@ -31,20 +35,22 @@ public class AlunoDTO implements Serializable {
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
 	
+	
 		
-//	private List<Responsavel> responsaveis;
+	private List<Responsavel> responsaveis;
 	
 	public AlunoDTO() {
 		super();
 	}
 
 
-	public AlunoDTO(Integer id, String nome, Date dataNascimento, Integer idadeAtual, Integer idadeInicial, String sexo,
+	public AlunoDTO(Integer id, String nome, Unidade unidade, Date dataNascimento, Integer idadeAtual, Integer idadeInicial, String sexo,
 			String nisAtendido, Date dataMatricula, boolean desligado, String escola, String anoEscolar,
 			String periodoEscolar, boolean desacompanhado, String autorizadoBuscar) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.unidade = unidade;
 		this.dataNascimento = dataNascimento;
 		this.idadeAtual = idadeAtual;
 		this.idadeInicial = idadeInicial;
@@ -77,6 +83,17 @@ public class AlunoDTO implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	
+
+	public Unidade getUnidade() {
+		return unidade;
+	}
+
+
+	public void setUnidade(Unidade unidade) {
+		this.unidade = unidade;
 	}
 
 
@@ -197,6 +214,16 @@ public class AlunoDTO implements Serializable {
 
 	public void setAutorizadoBuscar(String autorizadoBuscar) {
 		this.autorizadoBuscar = autorizadoBuscar;
+	}
+
+
+	public List<Responsavel> getResponsaveis() {
+		return responsaveis;
+	}
+
+
+	public void setResponsaveis(List<Responsavel> responsaveis) {
+		this.responsaveis = responsaveis;
 	}
 
 
