@@ -45,7 +45,7 @@ public class CoordenadorService {
     public Coordenador insert(Coordenador coordenador) {
         coordenador.setId(null);
         coordenador = repository.save(coordenador);
-        emailService.sendOrderConfirmationHtmlEmail(coordenador);
+//        emailService.sendOrderConfirmationHtmlEmail(coordenador);
         return coordenador;
     }
 

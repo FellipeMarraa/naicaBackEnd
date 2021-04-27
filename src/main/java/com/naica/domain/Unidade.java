@@ -1,10 +1,14 @@
 package com.naica.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,6 +27,9 @@ public class Unidade {
 	private Coordenador coordenador;
 	
 	private String endereco;
+	
+	@OneToMany(mappedBy="unidade")
+	private List<Aluno> alunos = new ArrayList<>();
 	
 
 	public Unidade() {
@@ -58,6 +65,22 @@ public class Unidade {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public Coordenador getCoordenador() {
+		return coordenador;
+	}
+
+	public void setCoordenador(Coordenador coordenador) {
+		this.coordenador = coordenador;
+	}
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 
 	@Override
