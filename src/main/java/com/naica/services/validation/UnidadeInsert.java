@@ -8,10 +8,10 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Constraint(validatedBy = CoordenadorUpdateValidation.class)
+@Constraint(validatedBy = UnidadeInsertValidation.class)
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CoordenadorUpdate {
+public @interface UnidadeInsert{
 
     String message() default "Erro de validação";
 

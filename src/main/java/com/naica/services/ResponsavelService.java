@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.naica.domain.Responsavel;
 import com.naica.domain.dto.ResponsavelDTO;
 import com.naica.domain.dto.ResponsavelNewDTO;
-import com.naica.repository.ResponsavelRepository;
+import com.naica.repositories.ResponsavelRepository;
 import com.naica.services.exception.DataIntegrityException;
 import com.naica.services.exception.ObjectNotFoundException;
 

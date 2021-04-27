@@ -1,14 +1,15 @@
 package com.naica.domain.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.naica.domain.Unidade;
+import com.naica.services.validation.CoordenadorUpdate;
 
+@CoordenadorUpdate
 public class CoordenadorDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;

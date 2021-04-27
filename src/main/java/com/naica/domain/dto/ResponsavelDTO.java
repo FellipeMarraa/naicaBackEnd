@@ -14,7 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.naica.domain.Aluno;
+import com.naica.services.validation.ResponsavelUpdate;
 
+@ResponsavelUpdate
 public class ResponsavelDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;

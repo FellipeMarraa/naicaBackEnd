@@ -1,8 +1,5 @@
 package com.naica.resources;
 
-
-
-
 import java.net.URI;
 import java.util.List;
 

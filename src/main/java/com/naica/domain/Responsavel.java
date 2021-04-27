@@ -13,6 +13,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -39,6 +42,9 @@ public class Responsavel implements Serializable {
 	@ElementCollection
 	@CollectionTable(name= "TELEFONE")
 	private Set<String> telefones= new HashSet<>();
+	
+	@ManyToMany
+	@JoinTable(name = "RESPONSAVEL_ALUNO",joinColumns=@JoinColumn(name="responsavel_id"),inverseJoinColumns=@JoinColumn(name="aluno_id"))
 	private List<Aluno> alunos= new ArrayList<>();
 	
 	public Responsavel() {

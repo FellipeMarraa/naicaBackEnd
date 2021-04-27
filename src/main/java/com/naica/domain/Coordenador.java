@@ -2,10 +2,12 @@ package com.naica.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,7 @@ public class Coordenador  implements Serializable {
 	
 	private String nome;
 	
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="coordenador")
 	private Unidade unidade;
 	
 	private String email;

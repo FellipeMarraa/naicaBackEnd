@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.naica.services.validation.AlunoUpdate;
+
+@AlunoUpdate
 public class AlunoDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
