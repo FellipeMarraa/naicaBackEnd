@@ -8,7 +8,9 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.naica.repository.AlunoRepository;
+import com.naica.domain.Aluno;
+import com.naica.domain.dto.AlunoNewDTO;
+import com.naica.repositories.AlunoRepository;
 import com.naica.resources.exception.FieldMessage;
 
 public class AlunoInsertValidation implements ConstraintValidator<AlunoInsert, AlunoNewDTO> {

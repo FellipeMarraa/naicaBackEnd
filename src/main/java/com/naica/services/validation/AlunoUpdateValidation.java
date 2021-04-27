@@ -12,7 +12,9 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
-import com.naica.repository.AlunoRepository;
+import com.naica.domain.Aluno;
+import com.naica.domain.dto.AlunoDTO;
+import com.naica.repositories.AlunoRepository;
 import com.naica.resources.exception.FieldMessage;
 
 public class AlunoUpdateValidation implements ConstraintValidator<AlunoUpdate, AlunoDTO> {
