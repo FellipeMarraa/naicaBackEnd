@@ -15,6 +15,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import com.naica.domain.Coordenador;
+
 
 public abstract class AbstractEmailService implements EmailService {
 

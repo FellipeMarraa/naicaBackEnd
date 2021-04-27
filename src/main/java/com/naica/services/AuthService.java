@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.naica.domain.Coordenador;
+import com.naica.repositories.CoordenadorRepository;
+import com.naica.services.exception.ObjectNotFoundException;
+
 @Service
 public class AuthService {
 

@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.naica.domain.Coordenador;
+import com.naica.repositories.CoordenadorRepository;
 import com.naica.security.UserSS;
 
 @Service

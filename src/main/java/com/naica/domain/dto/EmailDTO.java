@@ -1,4 +1,4 @@
-package com.naica.dto;
+package com.naica.domain.dto;
 
 import java.io.Serializable;
 
