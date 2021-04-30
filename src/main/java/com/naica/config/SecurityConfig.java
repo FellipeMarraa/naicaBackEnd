@@ -33,21 +33,38 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private Environment env;
+    
+    private static final String[] PUBLIC_MATCHERS = {
+			
+	};
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
-            http.csrf().disable();
+	private static final String[] PUBLIC_MATCHERS_GET = {
+			"/unidades/**",
+			
+	};
+
+	private static final String[] PUBLIC_MATCHERS_POST = {
+			"/coordenador",
+			"/auth/forgot/**"
+	};
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		
+		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
             http.headers().frameOptions().disable();
         }
-
-        http.cors().and().csrf().disable();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().anyRequest().permitAll();
-        http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
-        http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
-
-    }
+		
+		http.cors().and().csrf().disable();
+		http.authorizeRequests()
+			.antMatchers(PUBLIC_MATCHERS_POST).permitAll()
+			.antMatchers(PUBLIC_MATCHERS_GET).permitAll()
+			.antMatchers(PUBLIC_MATCHERS).permitAll()
+			.anyRequest().authenticated();
+		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	}
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
