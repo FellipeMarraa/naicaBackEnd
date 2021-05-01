@@ -32,6 +32,11 @@ public class CoordenadorInsertValidation implements ConstraintValidator<Coordena
         if (verificaNome != null) {
             list.add(new FieldMessage("nome", "Coordenador já cadastrado!"));
         }
+        
+        Coordenador verificaEmail = repository.findByEmail(coordenadorNewDTO.getEmail());
+        if (verificaEmail != null) {
+            list.add(new FieldMessage("email", "Coordenador já cadastrado!"));
+        }
 
         for (FieldMessage e : list) {
             context.disableDefaultConstraintViolation();

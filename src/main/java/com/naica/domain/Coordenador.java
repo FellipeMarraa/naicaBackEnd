@@ -22,6 +22,8 @@ public class Coordenador  implements Serializable {
 	
 	private String nome;
 	
+	private String usuario;
+	
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="coordenador")
 	private Unidade unidade;
 	
@@ -31,10 +33,11 @@ public class Coordenador  implements Serializable {
 	
 	public Coordenador () {}
 
-	public Coordenador(Integer id, String nome, Unidade unidade, String email, String senha) {
+	public Coordenador(Integer id, String nome, String usuario, Unidade unidade, String email, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.usuario = usuario;
 		this.unidade = unidade;
 		this.email = email;
 		this.senha = senha;
@@ -51,9 +54,17 @@ public class Coordenador  implements Serializable {
 	public String getNome() {
 		return nome;
 	}
-
+	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public Unidade getUnidade() {

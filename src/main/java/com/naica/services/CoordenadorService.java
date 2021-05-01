@@ -82,6 +82,8 @@ public class CoordenadorService {
     private void updateData(Coordenador newCoordenador, Coordenador coordenador){
 
         newCoordenador.setNome(coordenador.getNome());
+        newCoordenador.setUsuario(coordenador.getUsuario());
+        newCoordenador.setUnidade(coordenador.getUnidade());
         newCoordenador.setEmail(coordenador.getEmail());
         newCoordenador.setSenha(coordenador.getSenha());
     }
@@ -93,7 +95,7 @@ public class CoordenadorService {
 
     public Coordenador fromDTO(CoordenadorNewDTO coordenadorNewDTO) {
 
-         Coordenador coordenador = new Coordenador(null, coordenadorNewDTO.getNome(), coordenadorNewDTO.getUnidade(), coordenadorNewDTO.getEmail(), bCryptPasswordEncoder.encode(coordenadorNewDTO.getSenha()));
+         Coordenador coordenador = new Coordenador(null, coordenadorNewDTO.getNome(), coordenadorNewDTO.getUsuario(), coordenadorNewDTO.getUnidade(), coordenadorNewDTO.getEmail(), bCryptPasswordEncoder.encode(coordenadorNewDTO.getSenha()));
 
          return coordenador;
 

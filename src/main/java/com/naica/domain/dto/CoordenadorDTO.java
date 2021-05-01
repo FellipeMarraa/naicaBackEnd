@@ -20,6 +20,8 @@ public class CoordenadorDTO implements Serializable {
 	
 	private String nome;
 	
+	private String usuario;
+	
 	private Unidade unidade;
 	
 	private String email;
@@ -28,10 +30,11 @@ public class CoordenadorDTO implements Serializable {
 	
 	public CoordenadorDTO () {}
 
-	public CoordenadorDTO (Integer id, String nome, Unidade unidade, String email, String senha) {
+	public CoordenadorDTO (Integer id, String nome, String usuario, Unidade unidade, String email, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.usuario = usuario;
 		this.unidade = unidade;
 		this.email = email;
 		this.senha = senha;
@@ -51,6 +54,14 @@ public class CoordenadorDTO implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public Unidade getUnidade() {

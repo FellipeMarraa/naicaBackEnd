@@ -31,11 +31,11 @@ public abstract class AbstractEmailService implements EmailService {
 
     @Override
     public void sendOrderConfirmationEmail(Coordenador coordenador) {
-        SimpleMailMessage sm = prepareSimpleMailMessageFromResponsavel(coordenador);
+        SimpleMailMessage sm = prepareSimpleMailMessageFromCoordenador(coordenador);
         sendEmail(sm);
     }
 
-    protected SimpleMailMessage prepareSimpleMailMessageFromResponsavel(Coordenador coordenador) {
+    protected SimpleMailMessage prepareSimpleMailMessageFromCoordenador(Coordenador coordenador) {
         SimpleMailMessage sm = new SimpleMailMessage();
         sm.setTo(coordenador.getEmail());
         sm.setFrom(sender);
@@ -45,7 +45,7 @@ public abstract class AbstractEmailService implements EmailService {
         return sm;
     }
 
-    protected String htmlFromTemplateResponsavel(Coordenador coordenador) {
+    protected String htmlFromTemplateCoordenador(Coordenador coordenador) {
         Context context = new Context();
         context.setVariable("responsavel", coordenador);
         return templateEngine.process("email/confirmacaoCadastro", context);
@@ -54,7 +54,7 @@ public abstract class AbstractEmailService implements EmailService {
     @Override
     public void sendOrderConfirmationHtmlEmail(Coordenador coordenador) {
         try {
-            MimeMessage mm = prepareMimeMessageFromResponsavel(coordenador);
+            MimeMessage mm = prepareMimeMessageFromCoordenador(coordenador);
             sendHtmlEmail(mm);
         }
         catch (MessagingException e) {
@@ -62,14 +62,14 @@ public abstract class AbstractEmailService implements EmailService {
         }
     }
 
-    protected MimeMessage prepareMimeMessageFromResponsavel(Coordenador coordenador) throws MessagingException {
+    protected MimeMessage prepareMimeMessageFromCoordenador(Coordenador coordenador) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
         mmh.setTo(coordenador.getEmail());
         mmh.setFrom(sender);
-        mmh.setSubject("Responsavel cadastrado! ID: " + coordenador.getId());
+        mmh.setSubject("Coordenador cadastrado! ID: " + coordenador.getId());
         mmh.setSentDate(new Date(System.currentTimeMillis()));
-        mmh.setText(htmlFromTemplateResponsavel(coordenador), true);
+        mmh.setText(htmlFromTemplateCoordenador(coordenador), true);
         return mimeMessage;
     }
 

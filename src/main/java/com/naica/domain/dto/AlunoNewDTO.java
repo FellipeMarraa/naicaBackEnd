@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.naica.domain.Unidade;
 import com.naica.services.validation.AlunoInsert;
 
 @AlunoInsert
@@ -20,7 +21,7 @@ public class AlunoNewDTO implements Serializable{
 	
 	private String nome;
 	
-//	private Unidade unidade;
+	private Unidade unidade;
 	
 	private Date dataNascimento;
 	
@@ -43,11 +44,12 @@ public class AlunoNewDTO implements Serializable{
 		super();
 	}
 	
-	public AlunoNewDTO(Integer id, String nome, Date dataNascimento, Integer idadeInicial, Date dataMatricula, String escola,
+	public AlunoNewDTO(Integer id, String nome, Unidade unidade, Date dataNascimento, Integer idadeInicial, Date dataMatricula, String escola,
 			String anoEscolar, String periodoEscolar, boolean desacompanhado, String autorizadoBuscar) {
 		super();
 		this.id = id; 
 		this.nome = nome;
+		this.unidade = unidade;
 		this.dataNascimento = dataNascimento;
 		this.idadeInicial = idadeInicial;
 		this.dataMatricula = dataMatricula;
@@ -73,6 +75,14 @@ public class AlunoNewDTO implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Unidade getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(Unidade unidade) {
+		this.unidade = unidade;
 	}
 
 	public Date getDataNascimento() {
