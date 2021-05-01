@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.naica.domain.Coordenador;
 import com.naica.services.validation.UnidadeUpdate;
 
 @UnidadeUpdate
@@ -19,16 +20,20 @@ public class UnidadeDTO implements Serializable {
 	
 	private String nome;
 	
+	private Coordenador coordenador;
+	
 	private String endereco;
+	
 	
 	public UnidadeDTO() {
 		super();
 	}
 
-	public UnidadeDTO(Integer id, String nome, String endereco) {
+	public UnidadeDTO(Integer id, String nome, Coordenador coordenador, String endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.coordenador = coordenador;
 		this.endereco = endereco;
 	}
 
@@ -47,6 +52,15 @@ public class UnidadeDTO implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+
+	public Coordenador getCoordenador() {
+		return coordenador;
+	}
+
+	public void setCoordenador(Coordenador coordenador) {
+		this.coordenador = coordenador;
 	}
 
 	public String getEndereco() {

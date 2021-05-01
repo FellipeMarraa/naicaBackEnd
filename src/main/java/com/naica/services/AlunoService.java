@@ -81,8 +81,19 @@ public class AlunoService {
     private void updateData(Aluno newAluno, Aluno aluno){
 
         newAluno.setNome(aluno.getNome());
-//        newAluno.setEmail(aluno.getEmail());
-//        newAluno.setSenha(aluno.getSenha());
+        newAluno.setUnidade(aluno.getUnidade());
+        newAluno.setDataNascimento(aluno.getDataNascimento());
+        newAluno.setIdadeAtual(aluno.getIdadeAtual());
+        newAluno.setIdadeInicial(aluno.getIdadeInicial());
+        newAluno.setSexo(aluno.getSexo());
+        newAluno.setNisAtendido(aluno.getNisAtendido());
+        newAluno.setDataMatricula(aluno.getDataMatricula());
+        newAluno.setDesligado(aluno.isDesligado());
+        newAluno.setEscola(aluno.getEscola());
+        newAluno.setAnoEscolar(aluno.getAnoEscolar());
+        newAluno.setPeriodoEscolar(aluno.getPeriodoEscolar());
+        newAluno.setDesacompanhado(aluno.isDesacompanhado());
+        newAluno.setAutorizadoBuscar(aluno.getAutorizadoBuscar());
     }
 
 
@@ -92,7 +103,7 @@ public class AlunoService {
 
     public Aluno fromDTO(AlunoNewDTO alunoNewDTO) {
 
-         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), null, null, null, null, null, null, null, false, null, null, null, false, null);
+         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), alunoNewDTO.getUnidade(), alunoNewDTO.getDataNascimento(), alunoNewDTO.getIdadeAtual(),alunoNewDTO.getIdadeInicial(), alunoNewDTO.getSexo(),alunoNewDTO.getNisAtendido() , alunoNewDTO.getDataMatricula(), alunoNewDTO.isDesligado(), alunoNewDTO.getEscola(), alunoNewDTO.getAnoEscolar(), alunoNewDTO.getPeriodoEscolar(), alunoNewDTO.isDesacompanhado(), alunoNewDTO.getAutorizadoBuscar());
 
          return aluno;
 

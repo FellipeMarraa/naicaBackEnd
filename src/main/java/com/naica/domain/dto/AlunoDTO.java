@@ -35,6 +35,7 @@ public class AlunoDTO implements Serializable {
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
 	
+	
 		
 	private List<Responsavel> responsaveis;
 	
@@ -83,7 +84,7 @@ public class AlunoDTO implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 	public Unidade getUnidade() {
 		return unidade;
 	}

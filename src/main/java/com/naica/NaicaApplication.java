@@ -29,6 +29,8 @@ public class NaicaApplication implements CommandLineRunner {
 		SpringApplication.run(NaicaApplication.class, args);
 		
 		System.out.println("BANCO RODANDO");
+
+
 	}
 
 	@Override
