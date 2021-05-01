@@ -26,7 +26,6 @@ public class Aluno implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
 	@ManyToOne
 	@JoinColumn(name="unidade_id")
 	private Unidade unidade;

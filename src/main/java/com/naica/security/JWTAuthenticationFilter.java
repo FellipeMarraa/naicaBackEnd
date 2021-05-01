@@ -76,7 +76,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             return "{\"timestamp\": " + date + ", "
                     + "\"status\": 401, "
                     + "\"error\": \"Não autorizado\", "
-                    + "\"message\": \"CPF/CNPJ ou senha inválidos\", "
+                    + "\"message\": \"Nome de Usuário ou senha inválidos\", "
                     + "\"path\": \"/login\"}";
         }
     }

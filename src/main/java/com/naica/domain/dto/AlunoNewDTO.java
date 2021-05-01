@@ -23,7 +23,6 @@ public class AlunoNewDTO implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
 	private Unidade unidade;
 	private Date dataNascimento;
 	private Integer idadeAtual;

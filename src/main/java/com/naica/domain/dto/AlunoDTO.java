@@ -35,8 +35,6 @@ public class AlunoDTO implements Serializable {
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
 	
-	
-		
 	private List<Responsavel> responsaveis;
 	
 	public AlunoDTO() {
