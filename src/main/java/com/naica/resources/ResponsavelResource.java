@@ -22,7 +22,7 @@ import com.naica.domain.dto.ResponsavelNewDTO;
 import com.naica.services.ResponsavelService;
 
 @RestController
-@RequestMapping(value = "/responsavel")
+@RequestMapping(value = "/responsaveis")
 public class ResponsavelResource {
 
     @Autowired

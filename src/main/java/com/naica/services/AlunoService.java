@@ -103,7 +103,7 @@ public class AlunoService {
 
     public Aluno fromDTO(AlunoNewDTO alunoNewDTO) {
 
-         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), alunoNewDTO.getUnidade(), alunoNewDTO.getDataNascimento(), alunoNewDTO.getIdadeAtual(),alunoNewDTO.getIdadeInicial(), alunoNewDTO.getSexo(),alunoNewDTO.getNisAtendido() , alunoNewDTO.getDataMatricula(), alunoNewDTO.isDesligado(), alunoNewDTO.getEscola(), alunoNewDTO.getAnoEscolar(), alunoNewDTO.getPeriodoEscolar(), alunoNewDTO.isDesacompanhado(), alunoNewDTO.getAutorizadoBuscar());
+         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), alunoNewDTO.getDataNascimento(), alunoNewDTO.getIdadeAtual(),alunoNewDTO.getIdadeInicial(), alunoNewDTO.getSexo(),alunoNewDTO.getNisAtendido() , alunoNewDTO.getDataMatricula(), alunoNewDTO.isDesligado(), alunoNewDTO.getEscola(), alunoNewDTO.getAnoEscolar(), alunoNewDTO.getPeriodoEscolar(), alunoNewDTO.isDesacompanhado(), alunoNewDTO.getAutorizadoBuscar(), alunoNewDTO.getUnidade());
 
          return aluno;
 

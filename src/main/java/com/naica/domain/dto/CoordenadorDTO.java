@@ -5,9 +5,13 @@ import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
+import com.naica.domain.Coordenador;
 import com.naica.domain.Unidade;
 import com.naica.services.validation.CoordenadorUpdate;
+import org.hibernate.validator.constraints.Length;
 
 @CoordenadorUpdate
 public class CoordenadorDTO implements Serializable {
@@ -17,27 +21,32 @@ public class CoordenadorDTO implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
+
+	@Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
+	@NotEmpty(message = "O campo nome não pode ser vazio")
 	private String nome;
-	
+
 	private String usuario;
-	
-	private Unidade unidade;
-	
+
+	@NotEmpty(message = "O campo email não pode ser vazio")
+	@Email
 	private String email;
-	
+
+	@NotEmpty(message = "O campo senha não pode ser vazio")
 	private String senha;
+
+	private Unidade unidade;
 	
 	public CoordenadorDTO () {}
 
-	public CoordenadorDTO (Integer id, String nome, String usuario, Unidade unidade, String email, String senha) {
+	public CoordenadorDTO (Coordenador coordenador) {
 		super();
-		this.id = id;
-		this.nome = nome;
-		this.usuario = usuario;
-		this.unidade = unidade;
-		this.email = email;
-		this.senha = senha;
+		this.id = coordenador.getId();
+		this.nome = coordenador.getNome();
+		this.usuario = coordenador.getUsuario();
+		this.unidade = coordenador.getUnidade();
+		this.email = coordenador.getEmail();
+		this.senha = coordenador.getSenha();
 	}
 	
 	public Integer getId() {

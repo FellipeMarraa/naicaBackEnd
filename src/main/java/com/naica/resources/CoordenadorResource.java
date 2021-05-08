@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.naica.domain.Coordenador;
+import com.naica.domain.dto.CoordenadorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +24,7 @@ import com.naica.domain.dto.CoordenadorNewDTO;
 import com.naica.services.CoordenadorService;
 
 @RestController
-@RequestMapping(value = "/coordenador")
+@RequestMapping(value = "/coordenadores")
 public class CoordenadorResource {
 
     @Autowired
@@ -47,11 +49,11 @@ public class CoordenadorResource {
         return ResponseEntity.created(uri).build();
     }
 
-    @RequestMapping(value = "/edit/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Coordenador> update(@Valid @RequestBody CoordenadorDTO coordenadorDTO, @PathVariable Integer id) {
-        Coordenador coordenador = service.fromDTO(coordenadorDTO);
-        coordenador.setId(id);
-        coordenador = service.update(coordenador);
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.PUT)
+    public ResponseEntity<Void> update(@Valid @RequestBody CoordenadorDTO CoordenadorDTO, @PathVariable Integer id){
+        Coordenador Coordenador = service.fromDTO(CoordenadorDTO);
+        Coordenador.setId(id);
+        Coordenador = service.update(Coordenador);
         return ResponseEntity.noContent().build();
     }
 

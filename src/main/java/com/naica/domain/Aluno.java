@@ -26,9 +26,6 @@ public class Aluno implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	@ManyToOne
-	@JoinColumn(name="unidade_id")
-	private Unidade unidade;
 	private Date dataNascimento;
 	private Integer idadeAtual;
 	private Integer idadeInicial;
@@ -45,6 +42,10 @@ public class Aluno implements Serializable {
 	@JsonIgnore
 	@ManyToMany(mappedBy = "alunos")
 	private List<Responsavel> responsaveis;
+
+	@ManyToOne
+	@JoinColumn(name="unidade_id")
+	private Unidade unidade;
 	
 	
 	public Aluno() {
@@ -52,14 +53,13 @@ public class Aluno implements Serializable {
 	}
 
 
-	public Aluno(Integer id, String nome, Unidade unidade, Date dataNascimento, Integer idadeAtual,
+	public Aluno(Integer id, String nome, Date dataNascimento, Integer idadeAtual,
 			Integer idadeInicial, String sexo, String nisAtendido, Date dataMatricula, boolean desligado, String escola,
-			String anoEscolar,String periodoEscolar , boolean desacompanhado, String autorizadoBuscar) {
+			String anoEscolar,String periodoEscolar , boolean desacompanhado, String autorizadoBuscar, Unidade unidade) {
 		super();
 		
 		this.id = id;
 		this.nome = nome;
-		this.unidade = unidade;
 		this.dataNascimento = dataNascimento;
 		this.idadeAtual = idadeAtual;
 		this.idadeInicial = idadeInicial;
@@ -72,6 +72,7 @@ public class Aluno implements Serializable {
 		this.periodoEscolar = periodoEscolar;
 		this.desacompanhado = desacompanhado;
 		this.autorizadoBuscar = autorizadoBuscar;
+		this.unidade = unidade;
 	}
 
 

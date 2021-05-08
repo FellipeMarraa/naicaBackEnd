@@ -4,6 +4,7 @@ package com.naica.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.naica.domain.Coordenador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -54,10 +55,10 @@ public class CoordenadorService {
     }
 
 
-    public Coordenador update(Coordenador coordenador) {
-        Coordenador newCoordenador = find(coordenador.getId());
-        updateData(newCoordenador, coordenador);
-        return repository.save(coordenador);
+    public Coordenador update(Coordenador Coordenador) {
+        Coordenador newCoordenador = find(Coordenador.getId());
+        updateDate(newCoordenador, Coordenador);
+        return repository.save(newCoordenador);
     }
 
 
@@ -79,23 +80,23 @@ public class CoordenadorService {
 
     }
 
-    private void updateData(Coordenador newCoordenador, Coordenador coordenador){
+    private void updateDate(Coordenador newCoordenador, Coordenador coordenador){
 
         newCoordenador.setNome(coordenador.getNome());
         newCoordenador.setUsuario(coordenador.getUsuario());
-        newCoordenador.setUnidade(coordenador.getUnidade());
         newCoordenador.setEmail(coordenador.getEmail());
         newCoordenador.setSenha(coordenador.getSenha());
+        newCoordenador.setUnidade(coordenador.getUnidade());
     }
 
 
     public Coordenador fromDTO(CoordenadorDTO coordenadorDTO) {
-        return new Coordenador( );
+        return new Coordenador(coordenadorDTO.getId(), coordenadorDTO.getNome(), coordenadorDTO.getUsuario(), coordenadorDTO.getEmail(), coordenadorDTO.getSenha(), coordenadorDTO.getUnidade());
     }
 
     public Coordenador fromDTO(CoordenadorNewDTO coordenadorNewDTO) {
 
-         Coordenador coordenador = new Coordenador(null, coordenadorNewDTO.getNome(), coordenadorNewDTO.getUsuario(), coordenadorNewDTO.getUnidade(), coordenadorNewDTO.getEmail(), bCryptPasswordEncoder.encode(coordenadorNewDTO.getSenha()));
+         Coordenador coordenador = new Coordenador(null, coordenadorNewDTO.getNome(), coordenadorNewDTO.getUsuario(), coordenadorNewDTO.getEmail(), bCryptPasswordEncoder.encode(coordenadorNewDTO.getSenha()), coordenadorNewDTO.getUnidade());
 
          return coordenador;
 

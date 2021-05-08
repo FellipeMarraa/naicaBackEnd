@@ -8,7 +8,9 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
+import com.naica.domain.Aluno;
 import com.naica.domain.Responsavel;
 import com.naica.domain.Unidade;
 import com.naica.services.validation.AlunoInsert;
@@ -18,52 +20,65 @@ public class AlunoNewDTO implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
-		
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	@NotEmpty(message = "O campo nome não pode ser vazio")
 	private String nome;
-	private Unidade unidade;
+	@NotEmpty(message = "O campo data de nascimento não pode ser vazio")
 	private Date dataNascimento;
+	@NotEmpty(message = "O campo idade atual não pode ser vazio")
 	private Integer idadeAtual;
+	@NotEmpty(message = "O campo idade inicial não pode ser vazio")
 	private Integer idadeInicial;
+	@NotEmpty(message = "O campo sexo não pode ser vazio")
 	private String sexo;
+
 	private String nisAtendido;
+	@NotEmpty(message = "O campo data de matrícula não pode ser vazio")
 	private Date dataMatricula;
+
 	private boolean desligado;
+	@NotEmpty(message = "O campo escola não pode ser vazio")
 	private String escola;
+	@NotEmpty(message = "O campo ano escolar não pode ser vazio")
 	private String anoEscolar;
+	@NotEmpty(message = "O campo período escolar não pode ser vazio")
 	private String periodoEscolar;
+	@NotEmpty(message = "O campo desacompanhado não pode ser vazio")
 	private boolean desacompanhado;
+
 	private String autorizadoBuscar;
-	
+
+	@NotEmpty(message = "O campo responsável(is) não pode ser vazio")
 	private List<Responsavel> responsaveis;
+
+	@NotEmpty(message = "O campo unidade não pode ser vazio")
+	private Unidade unidade;
 	
 	
 	public AlunoNewDTO() {
 		super();
 	}
 
-	public AlunoNewDTO(Integer id, String nome, Unidade unidade, Date dataNascimento, Integer idadeAtual,
-			Integer idadeInicial, String sexo, String nisAtendido, Date dataMatricula, boolean desligado, String escola,
-			String anoEscolar,String periodoEscolar , boolean desacompanhado, String autorizadoBuscar) {
+	public AlunoNewDTO(Aluno aluno) {
 		super();
-		
-		this.id = id;
-		this.nome = nome;
-		this.unidade = unidade;
-		this.dataNascimento = dataNascimento;
-		this.idadeAtual = idadeAtual;
-		this.idadeInicial = idadeInicial;
-		this.sexo = sexo;
-		this.nisAtendido = nisAtendido;
-		this.dataMatricula = dataMatricula;
-		this.desligado = desligado;
-		this.escola = escola;
-		this.anoEscolar = anoEscolar;
-		this.periodoEscolar = periodoEscolar;
-		this.desacompanhado = desacompanhado;
-		this.autorizadoBuscar = autorizadoBuscar;
+		this.id = aluno.getId();
+		this.nome = aluno.getNome();
+		this.unidade = aluno.getUnidade();
+		this.dataNascimento = aluno.getDataNascimento();
+		this.idadeAtual = getIdadeAtual();
+		this.idadeInicial = getIdadeInicial();
+		this.sexo = aluno.getSexo();
+		this.nisAtendido = aluno.getNisAtendido();
+		this.dataMatricula = aluno.getDataMatricula();
+		this.desligado = aluno.isDesligado();
+		this.escola = aluno.getEscola();
+		this.anoEscolar = aluno.getAnoEscolar();
+		this.periodoEscolar = aluno.getPeriodoEscolar();
+		this.desacompanhado = aluno.isDesacompanhado();
+		this.autorizadoBuscar = aluno.getAutorizadoBuscar();
 	}
 
 

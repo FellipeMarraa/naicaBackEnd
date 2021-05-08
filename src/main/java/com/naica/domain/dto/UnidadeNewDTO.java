@@ -5,9 +5,12 @@ import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 import com.naica.domain.Coordenador;
+import com.naica.domain.Unidade;
 import com.naica.services.validation.UnidadeInsert;
+import org.hibernate.validator.constraints.Length;
 
 @UnidadeInsert
 public class UnidadeNewDTO implements Serializable {
@@ -17,7 +20,9 @@ public class UnidadeNewDTO implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
+
+	@Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
+	@NotEmpty(message = "O campo nome não pode ser vazio")
 	private String nome;
 	
 	private Coordenador coordenador;
@@ -29,12 +34,12 @@ public class UnidadeNewDTO implements Serializable {
 		super();
 	}
 
-	public UnidadeNewDTO(Integer id, String nome, Coordenador coordenador, String endereco) {
+	public UnidadeNewDTO(Unidade unidade) {
 		super();
-		this.id = id;
-		this.nome = nome;
-		this.coordenador = coordenador;
-		this.endereco = endereco;
+		this.id = unidade.getId();
+		this.nome = unidade.getNome();
+		this.coordenador = unidade.getCoordenador();
+		this.endereco = unidade.getEndereco();
 	}
 
 

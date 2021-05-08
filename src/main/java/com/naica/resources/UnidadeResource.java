@@ -2,6 +2,7 @@ package com.naica.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -22,7 +23,7 @@ import com.naica.domain.dto.UnidadeNewDTO;
 import com.naica.services.UnidadeService;
 
 @RestController
-@RequestMapping(value = "/unidade")
+@RequestMapping(value = "/unidades")
 public class UnidadeResource {
 
     @Autowired
@@ -34,9 +35,11 @@ public class UnidadeResource {
         return service.find(id);
     }
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<Unidade> list() {
-        return service.findAll();
+    @RequestMapping(value = "/list", method=RequestMethod.GET)
+    public ResponseEntity<List<UnidadeDTO>> findAll() {
+        List<Unidade> list = service.findAll();
+        List<UnidadeDTO> listDto = list.stream().map(obj -> new UnidadeDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
     }
 
     @RequestMapping(value = "/create",method=RequestMethod.POST)
@@ -47,8 +50,8 @@ public class UnidadeResource {
         return ResponseEntity.created(uri).build();
     }
 
-    @RequestMapping(value = "/edit/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Unidade> update(@Valid @RequestBody UnidadeDTO unidadeDTO, @PathVariable Integer id) {
+    @RequestMapping(value="/edit/{id}", method=RequestMethod.PUT)
+    public ResponseEntity<Void> update(@Valid @RequestBody UnidadeDTO unidadeDTO, @PathVariable Integer id){
         Unidade unidade = service.fromDTO(unidadeDTO);
         unidade.setId(id);
         unidade = service.update(unidade);

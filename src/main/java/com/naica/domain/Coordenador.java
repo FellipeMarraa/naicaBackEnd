@@ -1,5 +1,8 @@
 package com.naica.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
@@ -24,23 +27,24 @@ public class Coordenador  implements Serializable {
 	
 	private String usuario;
 	
-	@OneToOne(cascade=CascadeType.ALL,mappedBy="coordenador")
-	private Unidade unidade;
-	
 	private String email;
 	
 	private String senha;
+
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="coordenador")
+	@JsonManagedReference
+	private Unidade unidade;
 	
 	public Coordenador () {}
 
-	public Coordenador(Integer id, String nome, String usuario, Unidade unidade, String email, String senha) {
+	public Coordenador(Integer id, String nome, String usuario, String email, String senha, Unidade unidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
-		this.unidade = unidade;
 		this.email = email;
 		this.senha = senha;
+		this.unidade = unidade;
 	}
 	
 	public Integer getId() {

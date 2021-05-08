@@ -52,11 +52,10 @@ public class UnidadeService {
         return repository.findAll();
     }
 
-
     public Unidade update(Unidade unidade) {
         Unidade newUnidade = find(unidade.getId());
-        updateData(newUnidade, unidade);
-        return repository.save(unidade);
+        updateDate(newUnidade, unidade);
+        return repository.save(newUnidade);
     }
 
 
@@ -78,15 +77,14 @@ public class UnidadeService {
 
     }
 
-    private void updateData(Unidade newUnidade, Unidade unidade){
+    private void updateDate(Unidade newUnidade, Unidade unidade){
 
         newUnidade.setNome(unidade.getNome());
-        newUnidade.setEndereco(unidade.getEndereco());
     }
 
 
     public Unidade fromDTO(UnidadeDTO unidadeDTO) {
-        return new Unidade( );
+        return new Unidade(unidadeDTO.getId(), unidadeDTO.getNome(), unidadeDTO.getEndereco());
     }
 
     public Unidade fromDTO(UnidadeNewDTO unidadeNewDTO) {

@@ -12,194 +12,174 @@ import javax.persistence.ElementCollection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 import com.naica.domain.Aluno;
+import com.naica.domain.Responsavel;
 import com.naica.services.validation.ResponsavelUpdate;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CPF;
 
 @ResponsavelUpdate
 public class ResponsavelDTO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY) 
-	private Integer id;
-	private String nome;
-	private Date dataNascimento;
-	private String cpf;
-	private String identidade;
-	private Date dataEmissao;
-	private String uf;
-	private String orgaoExpeditor;
-	private String ctps;
-	private String nisResponsavel;
-	private String endereco;
-	private String email;
-	private String observacao;
-	
-	@ElementCollection
-	@CollectionTable(name= "TELEFONE")
-	private Set<String> telefones= new HashSet<>();
-	private List<Aluno> alunos= new ArrayList<>();
-	
-	public ResponsavelDTO() {
-		super();
-	}
-	
-	
-	
+    private static final long serialVersionUID = 1L;
 
-	public ResponsavelDTO(Integer id, String nome, Date dataNascimento, String cpf, String identidade, Date dataEmissao,
-			String uf, String orgaoExpeditor, String ctps, String nisResponsavel, String endereco, String email,
-			String observacao) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.dataNascimento = dataNascimento;
-		this.cpf = cpf;
-		this.identidade = identidade;
-		this.dataEmissao = dataEmissao;
-		this.uf = uf;
-		this.orgaoExpeditor = orgaoExpeditor;
-		this.ctps = ctps;
-		this.nisResponsavel = nisResponsavel;
-		this.endereco = endereco;
-		this.email = email;
-		this.observacao = observacao;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    @Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
+    @NotEmpty(message = "O campo nome não pode ser vazio")
+    private String nome;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @NotEmpty(message = "O campo data de emissão não pode ser vazio")
+    private Date dataEmissao;
 
-	public String getNome() {
-		return nome;
-	}
+    @NotEmpty(message = "O campo uf não pode ser vazio")
+    private String uf;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    @NotEmpty(message = "O campo orgao expeditor não pode ser vazio")
+    private String orgaoExpeditor;
 
-	public Date getDataNascimento() {
-		return dataNascimento;
-	}
+    private String ctps;
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    private String nisResponsavel;
 
-	public String getCpf() {
-		return cpf;
-	}
+    @NotEmpty(message = "O campo endereço não pode ser vazio")
+    private String endereco;
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    @Email
+    private String email;
 
-	public String getIdentidade() {
-		return identidade;
-	}
+    private String observacao;
 
-	public void setIdentidade(String identidade) {
-		this.identidade = identidade;
-	}
+    @ElementCollection
+    @CollectionTable(name = "TELEFONE")
+    @NotEmpty(message = "O campo telefone não pode ser vazio")
+    private Set<String> telefones = new HashSet<>();
 
-	public Date getDataEmissao() {
-		return dataEmissao;
-	}
+    @NotEmpty(message = "O campo atendido(s) não pode ser vazio")
+    private List<Aluno> alunos = new ArrayList<>();
 
-	public void setDataEmissao(Date dataEmissao) {
-		this.dataEmissao = dataEmissao;
-	}
+    public ResponsavelDTO() {
+        super();
+    }
 
-	public String getUf() {
-		return uf;
-	}
+    public ResponsavelDTO(Responsavel responsavel) {
+        super();
+        this.id = responsavel.getId();
+        this.nome = responsavel.getNome();
+        this.dataEmissao = responsavel.getDataEmissao();
+        this.uf = responsavel.getUf();
+        this.orgaoExpeditor = responsavel.getOrgaoExpeditor();
+        this.ctps = responsavel.getCtps();
+        this.nisResponsavel = responsavel.getNisResponsavel();
+        this.endereco = responsavel.getEndereco();
+        this.email = responsavel.getEmail();
+        this.observacao = responsavel.getObservacao();
+    }
 
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getOrgaoExpeditor() {
-		return orgaoExpeditor;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setOrgaoExpeditor(String orgaoExpeditor) {
-		this.orgaoExpeditor = orgaoExpeditor;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getCtps() {
-		return ctps;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public Date getDataEmissao() {
+        return dataEmissao;
+    }
 
-	public void setCtps(String ctps) {
-		this.ctps = ctps;
-	}
+    public void setDataEmissao(Date dataEmissao) {
+        this.dataEmissao = dataEmissao;
+    }
 
-	public String getNisResponsavel() {
-		return nisResponsavel;
-	}
+    public String getUf() {
+        return uf;
+    }
 
-	public void setNisResponsavel(String nisResponsavel) {
-		this.nisResponsavel = nisResponsavel;
-	}
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public String getOrgaoExpeditor() {
+        return orgaoExpeditor;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public void setOrgaoExpeditor(String orgaoExpeditor) {
+        this.orgaoExpeditor = orgaoExpeditor;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getCtps() {
+        return ctps;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setCtps(String ctps) {
+        this.ctps = ctps;
+    }
 
-	public String getObservacao() {
-		return observacao;
-	}
+    public String getNisResponsavel() {
+        return nisResponsavel;
+    }
 
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
+    public void setNisResponsavel(String nisResponsavel) {
+        this.nisResponsavel = nisResponsavel;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
 
 
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
 
 
-	public List<Aluno> getAlunos() {
-		return alunos;
-	}
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
 
 
+    public Set<String> getTelefones() {
+        return telefones;
+    }
 
 
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
-	}
+    public void setTelefones(Set<String> telefones) {
+        this.telefones = telefones;
+    }
 
-
-
-
-	public Set<String> getTelefones() {
-		return telefones;
-	}
-
-
-
-
-	public void setTelefones(Set<String> telefones) {
-		this.telefones = telefones;
-	}
-	
-	
 
 }

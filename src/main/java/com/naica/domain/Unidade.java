@@ -1,5 +1,9 @@
 package com.naica.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,21 +18,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="UNIDADE")
-public class Unidade {
+public class Unidade implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String nome;
-	
+
 	@OneToOne
 	@JoinColumn(name="coordenador_id")
+	@JsonBackReference
 	private Coordenador coordenador;
 	
 	private String endereco;
-	
+
 	@OneToMany(mappedBy="unidade")
+	@JsonIgnore
 	private List<Aluno> alunos = new ArrayList<>();
 	
 

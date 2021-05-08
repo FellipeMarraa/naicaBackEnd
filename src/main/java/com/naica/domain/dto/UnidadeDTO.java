@@ -1,13 +1,16 @@
 package com.naica.domain.dto;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.naica.domain.Coordenador;
+import com.naica.domain.Unidade;
+import com.naica.services.validation.UnidadeUpdate;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.naica.domain.Coordenador;
-import com.naica.services.validation.UnidadeUpdate;
+import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 
 @UnidadeUpdate
 public class UnidadeDTO implements Serializable {
@@ -17,9 +20,12 @@ public class UnidadeDTO implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
+
+	@Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
+	@NotEmpty(message = "O campo nome não pode ser vazio")
 	private String nome;
-	
+
+	@JsonIgnore
 	private Coordenador coordenador;
 	
 	private String endereco;
@@ -29,12 +35,12 @@ public class UnidadeDTO implements Serializable {
 		super();
 	}
 
-	public UnidadeDTO(Integer id, String nome, Coordenador coordenador, String endereco) {
+	public UnidadeDTO(Unidade unidade) {
 		super();
-		this.id = id;
-		this.nome = nome;
-		this.coordenador = coordenador;
-		this.endereco = endereco;
+		this.id = unidade.getId();
+		this.nome = unidade.getNome();
+		this.coordenador = unidade.getCoordenador();
+		this.endereco = unidade.getEndereco();
 	}
 
 
