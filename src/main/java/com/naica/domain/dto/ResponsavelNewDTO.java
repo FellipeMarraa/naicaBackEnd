@@ -31,33 +31,33 @@ public class ResponsavelNewDTO implements Serializable {
     private Integer id;
 
     @Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
-    @NotEmpty(message = "O campo nome não pode ser vazio")
+//    @NotEmpty(message = "O campo nome não pode ser vazio")
     private String nome;
 
-    @NotEmpty(message = "O campo Data de Nascimento não pode ser vazio")
+//    @NotEmpty(message = "O campo Data de Nascimento não pode ser vazio")
     private Date dataNascimento;
 
-    @NotEmpty(message = "O campo CPF não pode ser vazio")
+//    @NotEmpty(message = "O campo CPF não pode ser vazio")
     @CPF
     private String cpf;
 
-    @NotEmpty(message = "O campo identidade não pode ser vazio")
+//    @NotEmpty(message = "O campo identidade não pode ser vazio")
     private String identidade;
 
-    @NotEmpty(message = "O campo data de emissão não pode ser vazio")
+//    @NotEmpty(message = "O campo data de emissão não pode ser vazio")
     private Date dataEmissao;
 
-    @NotEmpty(message = "O campo uf não pode ser vazio")
+//    @NotEmpty(message = "O campo uf não pode ser vazio")
     private String uf;
 
-    @NotEmpty(message = "O campo orgao expeditor não pode ser vazio")
+//    @NotEmpty(message = "O campo orgao expeditor não pode ser vazio")
     private String orgaoExpeditor;
 
     private String ctps;
 
     private String nisResponsavel;
 
-    @NotEmpty(message = "O campo endereço não pode ser vazio")
+//    @NotEmpty(message = "O campo endereço não pode ser vazio")
     private String endereco;
 
     @Email
@@ -67,10 +67,10 @@ public class ResponsavelNewDTO implements Serializable {
 
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
-    @NotEmpty(message = "O campo telefone não pode ser vazio")
+//    @NotEmpty(message = "O campo telefone não pode ser vazio")
     private Set<String> telefones = new HashSet<>();
 
-    @NotEmpty(message = "O campo atendido(s) não pode ser vazio")
+//    @NotEmpty(message = "O campo atendido(s) não pode ser vazio")
     private List<Aluno> alunos = new ArrayList<>();
 
     public ResponsavelNewDTO() {

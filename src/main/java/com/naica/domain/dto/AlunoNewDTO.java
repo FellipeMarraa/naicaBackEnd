@@ -24,37 +24,37 @@ public class AlunoNewDTO implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@NotEmpty(message = "O campo nome não pode ser vazio")
+////	@NotEmpty(message = "O campo nome não pode ser vazio")
 	private String nome;
-	@NotEmpty(message = "O campo data de nascimento não pode ser vazio")
+//	@NotEmpty(message = "O campo data de nascimento não pode ser vazio")
 	private Date dataNascimento;
-	@NotEmpty(message = "O campo idade atual não pode ser vazio")
+//	@NotEmpty(message = "O campo idade atual não pode ser vazio")
 	private Integer idadeAtual;
-	@NotEmpty(message = "O campo idade inicial não pode ser vazio")
+//	@NotEmpty(message = "O campo idade inicial não pode ser vazio")
 	private Integer idadeInicial;
-	@NotEmpty(message = "O campo sexo não pode ser vazio")
+//	@NotEmpty(message = "O campo sexo não pode ser vazio")
 	private String sexo;
 
 	private String nisAtendido;
-	@NotEmpty(message = "O campo data de matrícula não pode ser vazio")
+//	@NotEmpty(message = "O campo data de matrícula não pode ser vazio")
 	private Date dataMatricula;
 
 	private boolean desligado;
-	@NotEmpty(message = "O campo escola não pode ser vazio")
+//	@NotEmpty(message = "O campo escola não pode ser vazio")
 	private String escola;
-	@NotEmpty(message = "O campo ano escolar não pode ser vazio")
+//	@NotEmpty(message = "O campo ano escolar não pode ser vazio")
 	private String anoEscolar;
-	@NotEmpty(message = "O campo período escolar não pode ser vazio")
+//	@NotEmpty(message = "O campo período escolar não pode ser vazio")
 	private String periodoEscolar;
-	@NotEmpty(message = "O campo desacompanhado não pode ser vazio")
+//	@NotEmpty(message = "O campo desacompanhado não pode ser vazio")
 	private boolean desacompanhado;
 
 	private String autorizadoBuscar;
 
-	@NotEmpty(message = "O campo responsável(is) não pode ser vazio")
+//	@NotEmpty(message = "O campo responsável(is) não pode ser vazio")
 	private List<Responsavel> responsaveis;
 
-	@NotEmpty(message = "O campo unidade não pode ser vazio")
+//	@NotEmpty(message = "O campo unidade não pode ser vazio")
 	private Unidade unidade;
 	
 	
