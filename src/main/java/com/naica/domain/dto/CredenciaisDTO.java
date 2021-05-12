@@ -35,10 +35,7 @@ public class CredenciaisDTO implements Serializable {
 		this.senha = senha;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
+
 	
 	
 

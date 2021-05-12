@@ -98,7 +98,8 @@ public class AlunoService {
 
 
     public Aluno fromDTO(AlunoDTO alunoDTO) {
-        return new Aluno( );
+        return new Aluno(alunoDTO.getId(), alunoDTO.getNome(), alunoDTO.getDataNascimento(), alunoDTO.getIdadeAtual(),alunoDTO.getIdadeInicial(), alunoDTO.getSexo(),alunoDTO.getNisAtendido() , alunoDTO.getDataMatricula(), alunoDTO.isDesligado(), alunoDTO.getEscola(), alunoDTO.getAnoEscolar(), alunoDTO.getPeriodoEscolar(), alunoDTO.isDesacompanhado(), alunoDTO.getAutorizadoBuscar(), alunoDTO.getUnidade());
+
     }
 
     public Aluno fromDTO(AlunoNewDTO alunoNewDTO) {

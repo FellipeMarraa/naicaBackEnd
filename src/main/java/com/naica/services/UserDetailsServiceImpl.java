@@ -19,13 +19,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private CoordenadorRepository coordenadorRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
 
-        Coordenador coordenador = coordenadorRepository.findByEmail(email);
+        Coordenador coordenador = coordenadorRepository.findByUsuario(usuario);
         if (coordenador == null){
-            throw new UsernameNotFoundException(email);
+            throw new UsernameNotFoundException(usuario);
         }
-        return new UserSS(coordenador.getId(), coordenador.getEmail(), coordenador.getSenha());
+        return new UserSS(coordenador.getId(), coordenador.getUsuario(), coordenador.getSenha());
     }
 
 }

@@ -10,7 +10,7 @@ public class UserSS implements UserDetails {
 
     private Integer id;
 
-    private String username;
+    private String usuario;
 
     private String senha;
 
@@ -19,9 +19,9 @@ public class UserSS implements UserDetails {
     public UserSS() {
     }
 
-    public UserSS(Integer id, String username, String senha) {
+    public UserSS(Integer id, String usuario, String senha) {
         this.id = id;
-        this.username = username;
+        this.usuario = usuario;
         this.senha = senha;
     }
 
@@ -41,7 +41,7 @@ public class UserSS implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return usuario;
     }
 
     @Override

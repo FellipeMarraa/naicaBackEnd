@@ -30,37 +30,37 @@ public class ResponsavelNewDTO implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
+    //    @Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
 //    @NotEmpty(message = "O campo nome não pode ser vazio")
     private String nome;
 
-//    @NotEmpty(message = "O campo Data de Nascimento não pode ser vazio")
+    //    @NotEmpty(message = "O campo Data de Nascimento não pode ser vazio")
     private Date dataNascimento;
 
-//    @NotEmpty(message = "O campo CPF não pode ser vazio")
-    @CPF
+    //    @NotEmpty(message = "O campo CPF não pode ser vazio")
+//    @CPF
     private String cpf;
 
-//    @NotEmpty(message = "O campo identidade não pode ser vazio")
+    //    @NotEmpty(message = "O campo identidade não pode ser vazio")
     private String identidade;
 
-//    @NotEmpty(message = "O campo data de emissão não pode ser vazio")
+    //    @NotEmpty(message = "O campo data de emissão não pode ser vazio")
     private Date dataEmissao;
 
-//    @NotEmpty(message = "O campo uf não pode ser vazio")
+    //    @NotEmpty(message = "O campo uf não pode ser vazio")
     private String uf;
 
-//    @NotEmpty(message = "O campo orgao expeditor não pode ser vazio")
+    //    @NotEmpty(message = "O campo orgao expeditor não pode ser vazio")
     private String orgaoExpeditor;
 
     private String ctps;
 
     private String nisResponsavel;
 
-//    @NotEmpty(message = "O campo endereço não pode ser vazio")
+    //    @NotEmpty(message = "O campo endereço não pode ser vazio")
     private String endereco;
 
-    @Email
+    //    @Email
     private String email;
 
     private String observacao;
@@ -68,9 +68,9 @@ public class ResponsavelNewDTO implements Serializable {
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
 //    @NotEmpty(message = "O campo telefone não pode ser vazio")
-    private Set<String> telefones = new HashSet<>();
+    private String telefones;
 
-//    @NotEmpty(message = "O campo atendido(s) não pode ser vazio")
+    //    @NotEmpty(message = "O campo atendido(s) não pode ser vazio")
     private List<Aluno> alunos = new ArrayList<>();
 
     public ResponsavelNewDTO() {
@@ -92,6 +92,7 @@ public class ResponsavelNewDTO implements Serializable {
         this.endereco = responsavel.getEndereco();
         this.email = responsavel.getEmail();
         this.observacao = responsavel.getObservacao();
+        this.telefones = responsavel.getTelefones();
     }
 
     public Integer getId() {
@@ -198,6 +199,14 @@ public class ResponsavelNewDTO implements Serializable {
         this.observacao = observacao;
     }
 
+    public String getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(String telefones) {
+        this.telefones = telefones;
+    }
+
 
     public List<Aluno> getAlunos() {
         return alunos;
@@ -207,16 +216,5 @@ public class ResponsavelNewDTO implements Serializable {
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
     }
-
-
-    public Set<String> getTelefones() {
-        return telefones;
-    }
-
-
-    public void setTelefones(Set<String> telefones) {
-        this.telefones = telefones;
-    }
-
 
 }

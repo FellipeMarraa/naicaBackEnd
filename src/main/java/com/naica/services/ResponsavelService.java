@@ -93,17 +93,18 @@ public class ResponsavelService {
         newResponsavel.setEndereco(responsavel.getEndereco());
         newResponsavel.setEmail(responsavel.getEmail());
         newResponsavel.setObservacao(responsavel.getObservacao());
+        newResponsavel.setTelefones(responsavel.getTelefones());
         
     }
 
 
     public Responsavel fromDTO(ResponsavelDTO responsavelDTO) {
-        return new Responsavel( );
+        return new Responsavel(responsavelDTO.getId(), responsavelDTO.getNome(), responsavelDTO.getDataNascimento(), responsavelDTO.getCpf(), responsavelDTO.getIdentidade(), responsavelDTO.getDataEmissao(), responsavelDTO.getUf(), responsavelDTO.getOrgaoExpeditor(), responsavelDTO.getCtps(), responsavelDTO.getNisResponsavel(), responsavelDTO.getEndereco(), responsavelDTO.getEmail(), responsavelDTO.getObservacao(), responsavelDTO.getTelefones());
     }
 
     public Responsavel fromDTO(ResponsavelNewDTO responsavelNewDTO) {
 
-         Responsavel responsavel = new Responsavel(null, responsavelNewDTO.getNome(), responsavelNewDTO.getDataNascimento(), responsavelNewDTO.getCpf(), responsavelNewDTO.getIdentidade(), responsavelNewDTO.getDataEmissao(), responsavelNewDTO.getUf(), responsavelNewDTO.getOrgaoExpeditor(), responsavelNewDTO.getCtps(), responsavelNewDTO.getNisResponsavel(), responsavelNewDTO.getEndereco(), responsavelNewDTO.getEmail(), responsavelNewDTO.getObservacao() );
+         Responsavel responsavel = new Responsavel(null, responsavelNewDTO.getNome(), responsavelNewDTO.getDataNascimento(), responsavelNewDTO.getCpf(), responsavelNewDTO.getIdentidade(), responsavelNewDTO.getDataEmissao(), responsavelNewDTO.getUf(), responsavelNewDTO.getOrgaoExpeditor(), responsavelNewDTO.getCtps(), responsavelNewDTO.getNisResponsavel(), responsavelNewDTO.getEndereco(), responsavelNewDTO.getEmail(), responsavelNewDTO.getObservacao(), responsavelNewDTO.getTelefones());
 
          return responsavel;
 

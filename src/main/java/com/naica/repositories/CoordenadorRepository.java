@@ -13,4 +13,7 @@ public interface CoordenadorRepository extends JpaRepository<Coordenador, Intege
 
 	@Transactional
 	Coordenador findByNome(String nome);
+
+	@Transactional
+	Coordenador findByUsuario(String usuario);
 }
