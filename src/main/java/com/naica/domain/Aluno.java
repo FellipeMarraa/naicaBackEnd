@@ -1,5 +1,8 @@
 package com.naica.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import net.minidev.json.annotate.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -12,8 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "ALUNO")
@@ -39,7 +40,7 @@ public class Aluno implements Serializable {
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
 	
-	@JsonIgnore
+	@JsonBackReference
 	@ManyToMany(mappedBy = "alunos")
 	private List<Responsavel> responsaveis;
 

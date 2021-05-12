@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.naica.domain.Responsavel;
+import com.naica.domain.dto.ResponsavelNewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -69,6 +71,7 @@ public class AlunoResource {
 
         return list;
     }
+
 
 
 }

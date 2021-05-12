@@ -3,10 +3,15 @@ package com.naica.services;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.List;
 
+import com.naica.domain.Aluno;
 import com.naica.domain.Coordenador;
+import com.naica.domain.Responsavel;
 import com.naica.domain.Unidade;
+import com.naica.repositories.AlunoRepository;
 import com.naica.repositories.CoordenadorRepository;
+import com.naica.repositories.ResponsavelRepository;
 import com.naica.repositories.UnidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,6 +31,13 @@ public class DBService {
     private CoordenadorRepository coordenadorRepository;
 
     @Autowired
+    private AlunoRepository alunoRepository;
+
+    @Autowired
+    private ResponsavelRepository responsavelRepository;
+
+
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public void instantiateTestDatabase() throws ParseException {
@@ -43,17 +55,17 @@ public class DBService {
         Unidade tocantins = new Unidade(null, "Naica Tocantins", " Sem endereço no momento ");
 
 
-        Coordenador cLuizote = new Coordenador(null, "Claudecir Santana","claudecir.santana", "kady_bio@yahoo.com.br", bCryptPasswordEncoder.encode("Senha123"), luizote);
-        Coordenador cMorumbi = new Coordenador(null, "Danielle Castro", "danielle.castro", "Não possui", bCryptPasswordEncoder.encode("Senha123"),morumbi);
-        Coordenador cLagoinha = new Coordenador(null, "Elga Carrijo","elga.carrijo", "Não possui", bCryptPasswordEncoder.encode("Senha123"), lagoinha);
-        Coordenador cTibery = new Coordenador(null, "Miriam Lima","miriam.lima", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tibery);
-        Coordenador cMartaHelena = new Coordenador(null, "Clausmei Reis","clausmei.reis", "Não possui", bCryptPasswordEncoder.encode("Senha123"), martaHelena);
-        Coordenador cMansour = new Coordenador(null, "Danuza Franco","danuza.franco", "Não possui", bCryptPasswordEncoder.encode("Senha123"), mansour);
+        Coordenador cLuizote = new Coordenador(null, "Claudecir Santana", "claudecir.santana", "kady_bio@yahoo.com.br", bCryptPasswordEncoder.encode("Senha123"), luizote);
+        Coordenador cMorumbi = new Coordenador(null, "Danielle Castro", "danielle.castro", "Não possui", bCryptPasswordEncoder.encode("Senha123"), morumbi);
+        Coordenador cLagoinha = new Coordenador(null, "Elga Carrijo", "elga.carrijo", "Não possui", bCryptPasswordEncoder.encode("Senha123"), lagoinha);
+        Coordenador cTibery = new Coordenador(null, "Miriam Lima", "miriam.lima", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tibery);
+        Coordenador cMartaHelena = new Coordenador(null, "Clausmei Reis", "clausmei.reis", "Não possui", bCryptPasswordEncoder.encode("Senha123"), martaHelena);
+        Coordenador cMansour = new Coordenador(null, "Danuza Franco", "danuza.franco", "Não possui", bCryptPasswordEncoder.encode("Senha123"), mansour);
         Coordenador cPequis = new Coordenador(null, "Thays Gonçalves", "thays.gonçalves", "Não possui", bCryptPasswordEncoder.encode("Senha123"), pequis);
-        Coordenador cJardimCelia = new Coordenador(null, "Alan Moreira","alan.moreira", "Não possui", bCryptPasswordEncoder.encode("Senha123"), jardimCelia);
+        Coordenador cJardimCelia = new Coordenador(null, "Alan Moreira", "alan.moreira", "Não possui", bCryptPasswordEncoder.encode("Senha123"), jardimCelia);
         Coordenador cTapuirama = new Coordenador(null, "Angélica Lemes", "angelica.lemes", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tapuirama);
         Coordenador cCanaa = new Coordenador(null, "Daniella Sales", "daniella.sales", "Não possui", bCryptPasswordEncoder.encode("Senha123"), canaa);
-        Coordenador cTocantins = new Coordenador(null, "Laís Barcelos","lais.barcelos", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tocantins);
+        Coordenador cTocantins = new Coordenador(null, "Laís Barcelos", "lais.barcelos", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tocantins);
 
         luizote.setCoordenador(cLuizote);
         cLuizote.setUnidade(luizote);
@@ -89,7 +101,26 @@ public class DBService {
         cTocantins.setUnidade(tocantins);
 
 
-        coordenadorRepository.saveAll(Arrays.asList(cLuizote,cMorumbi, cLagoinha, cTibery, cMartaHelena, cMansour, cPequis, cJardimCelia, cTapuirama, cCanaa, cTocantins));
+        coordenadorRepository.saveAll(Arrays.asList(cLuizote, cMorumbi, cLagoinha, cTibery, cMartaHelena, cMansour, cPequis, cJardimCelia, cTapuirama, cCanaa, cTocantins));
         unidadeRepository.saveAll(Arrays.asList(luizote, morumbi, lagoinha, tibery, martaHelena, mansour, pequis, jardimCelia, tapuirama, canaa, tocantins));
+
+
+        Aluno aluno1 = new Aluno(null,"lailla",null,20,21,null,null,null,false,"messias",null,null,false,null,null);
+        Responsavel responsavel1 = new Responsavel(null,"samia",null,null,null,null,null,null,null,null,null,null,null,null);
+
+        aluno1.setResponsaveis(Arrays.asList(responsavel1));
+        responsavel1.setAlunos(Arrays.asList(aluno1));
+
+        alunoRepository.saveAll(Arrays.asList(aluno1));
+        responsavelRepository.saveAll(Arrays.asList(responsavel1));
+
+
+
+
+
+
+
+
     }
+
 }

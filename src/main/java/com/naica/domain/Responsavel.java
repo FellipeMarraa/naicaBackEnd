@@ -1,5 +1,8 @@
 package com.naica.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import net.minidev.json.annotate.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,9 +41,9 @@ public class Responsavel implements Serializable {
     private String endereco;
     private String email;
     private String observacao;
-
     private String telefones;
 
+    @JsonManagedReference
     @ManyToMany
     @JoinTable(name = "RESPONSAVEL_ALUNO", joinColumns = @JoinColumn(name = "responsavel_id"), inverseJoinColumns = @JoinColumn(name = "aluno_id"))
     private List<Aluno> alunos = new ArrayList<>();
