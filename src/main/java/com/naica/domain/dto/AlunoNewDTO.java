@@ -52,7 +52,7 @@ public class AlunoNewDTO implements Serializable {
 	private String autorizadoBuscar;
 
 //	@NotEmpty(message = "O campo responsável(is) não pode ser vazio")
-	private List<Responsavel> responsaveis;
+	private Responsavel responsavel;
 
 //	@NotEmpty(message = "O campo unidade não pode ser vazio")
 	private Unidade unidade;
@@ -79,6 +79,7 @@ public class AlunoNewDTO implements Serializable {
 		this.periodoEscolar = aluno.getPeriodoEscolar();
 		this.desacompanhado = aluno.isDesacompanhado();
 		this.autorizadoBuscar = aluno.getAutorizadoBuscar();
+		this.responsavel = aluno.getResponsavel();
 	}
 
 
@@ -230,16 +231,14 @@ public class AlunoNewDTO implements Serializable {
 		this.autorizadoBuscar = autorizadoBuscar;
 	}
 
-	
-	public List<Responsavel> getResponsaveis() {
-		return responsaveis;
+
+	public Responsavel getResponsavel() {
+		return responsavel;
 	}
 
-
-	public void setResponsaveis(List<Responsavel> responsaveis) {
-		this.responsaveis = responsaveis;
+	public void setResponsavel(Responsavel responsavel) {
+		this.responsavel = responsavel;
 	}
-
 
 	@Override
 	public int hashCode() {

@@ -1,9 +1,12 @@
 package com.naica.services;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.naica.domain.Aluno;
+import com.naica.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -35,6 +38,8 @@ public class ResponsavelService {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private AlunoRepository alunoRepository;
 
     public Responsavel find(Integer id) {
         Optional<Responsavel> responsavel = repository.findById(id);
@@ -51,7 +56,6 @@ public class ResponsavelService {
     public List<Responsavel> findAll(){
         return repository.findAll();
     }
-
 
     public Responsavel update(Responsavel responsavel) {
         Responsavel newResponsavel = find(responsavel.getId());
@@ -109,4 +113,6 @@ public class ResponsavelService {
          return responsavel;
 
     }
+
 }
+

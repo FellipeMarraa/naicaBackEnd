@@ -1,9 +1,12 @@
 package com.naica.services;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.naica.domain.Responsavel;
+import com.naica.repositories.ResponsavelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -19,6 +22,8 @@ import com.naica.domain.dto.AlunoNewDTO;
 import com.naica.repositories.AlunoRepository;
 import com.naica.services.exception.DataIntegrityException;
 import com.naica.services.exception.ObjectNotFoundException;
+
+import javax.swing.text.html.Option;
 
 @Service
 public class AlunoService {
@@ -48,10 +53,9 @@ public class AlunoService {
         return aluno;
     }
 
-    public List<Aluno> findAll(){
+    public List<Aluno> findAll() {
         return repository.findAll();
     }
-
 
     public Aluno update(Aluno aluno) {
         Aluno newAluno = find(aluno.getId());
@@ -94,19 +98,23 @@ public class AlunoService {
         newAluno.setPeriodoEscolar(aluno.getPeriodoEscolar());
         newAluno.setDesacompanhado(aluno.isDesacompanhado());
         newAluno.setAutorizadoBuscar(aluno.getAutorizadoBuscar());
+        newAluno.setResponsavel(aluno.getResponsavel());
     }
 
 
     public Aluno fromDTO(AlunoDTO alunoDTO) {
-        return new Aluno(alunoDTO.getId(), alunoDTO.getNome(), alunoDTO.getDataNascimento(), alunoDTO.getIdadeAtual(),alunoDTO.getIdadeInicial(), alunoDTO.getSexo(),alunoDTO.getNisAtendido() , alunoDTO.getDataMatricula(), alunoDTO.isDesligado(), alunoDTO.getEscola(), alunoDTO.getAnoEscolar(), alunoDTO.getPeriodoEscolar(), alunoDTO.isDesacompanhado(), alunoDTO.getAutorizadoBuscar(), alunoDTO.getUnidade());
+        return new Aluno(alunoDTO.getId(), alunoDTO.getNome(), alunoDTO.getDataNascimento(), alunoDTO.getIdadeAtual(),alunoDTO.getIdadeInicial(), alunoDTO.getSexo(),alunoDTO.getNisAtendido() , alunoDTO.getDataMatricula(), alunoDTO.isDesligado(), alunoDTO.getEscola(), alunoDTO.getAnoEscolar(), alunoDTO.getPeriodoEscolar(), alunoDTO.isDesacompanhado(), alunoDTO.getAutorizadoBuscar(), alunoDTO.getResponsavel(),alunoDTO.getUnidade());
 
     }
 
     public Aluno fromDTO(AlunoNewDTO alunoNewDTO) {
 
-         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), alunoNewDTO.getDataNascimento(), alunoNewDTO.getIdadeAtual(),alunoNewDTO.getIdadeInicial(), alunoNewDTO.getSexo(),alunoNewDTO.getNisAtendido() , alunoNewDTO.getDataMatricula(), alunoNewDTO.isDesligado(), alunoNewDTO.getEscola(), alunoNewDTO.getAnoEscolar(), alunoNewDTO.getPeriodoEscolar(), alunoNewDTO.isDesacompanhado(), alunoNewDTO.getAutorizadoBuscar(), alunoNewDTO.getUnidade());
+         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), alunoNewDTO.getDataNascimento(), alunoNewDTO.getIdadeAtual(),alunoNewDTO.getIdadeInicial(), alunoNewDTO.getSexo(),alunoNewDTO.getNisAtendido() , alunoNewDTO.getDataMatricula(), alunoNewDTO.isDesligado(), alunoNewDTO.getEscola(), alunoNewDTO.getAnoEscolar(), alunoNewDTO.getPeriodoEscolar(), alunoNewDTO.isDesacompanhado(), alunoNewDTO.getAutorizadoBuscar(), alunoNewDTO.getResponsavel(), alunoNewDTO.getUnidade());
 
          return aluno;
 
     }
+
+
+
 }

@@ -23,20 +23,18 @@ public class Unidade implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-
 	private String nome;
 
 	@OneToOne
 	@JoinColumn(name="coordenador_id")
 	@JsonBackReference
 	private Coordenador coordenador;
-	
 	private String endereco;
 
-	@OneToMany(mappedBy="unidade")
 	@JsonIgnore
+	@OneToMany(mappedBy="unidade")
 	private List<Aluno> alunos = new ArrayList<>();
-	
+
 
 	public Unidade() {
 		super();

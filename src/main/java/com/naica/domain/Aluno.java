@@ -1,20 +1,14 @@
 package com.naica.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import net.minidev.json.annotate.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ALUNO")
@@ -39,10 +33,11 @@ public class Aluno implements Serializable {
 	private String periodoEscolar;
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
-	
-//	@JsonBackReference
-	@ManyToMany(mappedBy = "alunos")
-	private List<Responsavel> responsaveis;
+
+	@JsonManagedReference
+	@ManyToOne
+	@JoinColumn(name= "responsavel_id")
+	private Responsavel responsavel;
 
 	@ManyToOne
 	@JoinColumn(name="unidade_id")
@@ -56,7 +51,7 @@ public class Aluno implements Serializable {
 
 	public Aluno(Integer id, String nome, Date dataNascimento, Integer idadeAtual,
 			Integer idadeInicial, String sexo, String nisAtendido, Date dataMatricula, boolean desligado, String escola,
-			String anoEscolar,String periodoEscolar , boolean desacompanhado, String autorizadoBuscar, Unidade unidade) {
+			String anoEscolar,String periodoEscolar , boolean desacompanhado, String autorizadoBuscar,Responsavel responsavel ,Unidade unidade) {
 		super();
 		
 		this.id = id;
@@ -73,6 +68,7 @@ public class Aluno implements Serializable {
 		this.periodoEscolar = periodoEscolar;
 		this.desacompanhado = desacompanhado;
 		this.autorizadoBuscar = autorizadoBuscar;
+		this.responsavel=responsavel;
 		this.unidade = unidade;
 	}
 
@@ -226,16 +222,13 @@ public class Aluno implements Serializable {
 		this.autorizadoBuscar = autorizadoBuscar;
 	}
 
-	
-	public List<Responsavel> getResponsaveis() {
-		return responsaveis;
+	public Responsavel getResponsavel() {
+		return responsavel;
 	}
 
-
-	public void setResponsaveis(List<Responsavel> responsaveis) {
-		this.responsaveis = responsaveis;
+	public void setResponsavel(Responsavel responsavel) {
+		this.responsavel = responsavel;
 	}
-
 
 	@Override
 	public int hashCode() {

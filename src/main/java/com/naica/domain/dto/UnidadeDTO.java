@@ -21,8 +21,8 @@ public class UnidadeDTO implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
-	@Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
-	@NotEmpty(message = "O campo nome não pode ser vazio")
+//	@Length(min = 5, max = 80, message = "Nome deve conter entre 5 a 80 caracteres")
+//	@NotEmpty(message = "O campo nome não pode ser vazio")
 	private String nome;
 
 	@JsonIgnore

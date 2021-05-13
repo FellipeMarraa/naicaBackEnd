@@ -1,5 +1,6 @@
 package com.naica.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import net.minidev.json.annotate.JsonIgnore;
 
@@ -10,16 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "RESPONSAVEL")
@@ -43,9 +35,9 @@ public class Responsavel implements Serializable {
     private String observacao;
     private String telefones;
 
-//    @JsonManagedReference
-    @ManyToMany
-    @JoinTable(name = "RESPONSAVEL_ALUNO", joinColumns = @JoinColumn(name = "responsavel_id"), inverseJoinColumns = @JoinColumn(name = "aluno_id"))
+    @JsonBackReference
+    @JsonIgnore
+    @OneToMany(mappedBy = "responsavel")
     private List<Aluno> alunos = new ArrayList<>();
 
     public Responsavel() {

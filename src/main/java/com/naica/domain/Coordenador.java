@@ -22,13 +22,9 @@ public class Coordenador  implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
 	private String nome;
-	
 	private String usuario;
-	
 	private String email;
-	
 	private String senha;
 
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="coordenador")

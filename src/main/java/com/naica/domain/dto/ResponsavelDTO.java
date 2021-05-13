@@ -18,6 +18,7 @@ import javax.validation.constraints.NotEmpty;
 import com.naica.domain.Aluno;
 import com.naica.domain.Responsavel;
 import com.naica.services.validation.ResponsavelUpdate;
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -70,7 +71,9 @@ public class ResponsavelDTO implements Serializable {
 //    @NotEmpty(message = "O campo telefone não pode ser vazio")
     private String telefones;
 
+
     //    @NotEmpty(message = "O campo atendido(s) não pode ser vazio")
+    @JsonIgnore
     private List<Aluno> alunos = new ArrayList<>();
 
     public ResponsavelDTO() {
