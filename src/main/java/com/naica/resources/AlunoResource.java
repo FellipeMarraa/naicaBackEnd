@@ -72,6 +72,11 @@ public class AlunoResource {
         return list;
     }
 
+@RequestMapping(value = "/gera-responsavel",method = RequestMethod.POST)
+        public boolean geraResponsavel(List<Aluno> alunoList){
+        return service.geraResponsavel(alunoList);
+}
+
 
 
 }

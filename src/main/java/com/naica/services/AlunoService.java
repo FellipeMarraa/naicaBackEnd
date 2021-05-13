@@ -2,6 +2,7 @@ package com.naica.services;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +40,7 @@ public class AlunoService {
 
     @Autowired
     private EmailService emailService;
+
 
 
     public Aluno find(Integer id) {
@@ -116,5 +118,14 @@ public class AlunoService {
     }
 
 
+    public boolean geraResponsavel(List<Aluno> alunoList) {
+        alunoList.forEach(this::geraResponsavelAluno);
+        return true;
+    }
 
+    private void geraResponsavelAluno(Aluno aluno) {
+        LinkedList<Responsavel> responsaveis= new LinkedList<Responsavel>();
+        aluno.setResponsaveis(responsaveis);
+        repository.save(aluno);
+    }
 }

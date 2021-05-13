@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import net.minidev.json.annotate.JsonIgnore;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +43,9 @@ public class Aluno implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="unidade_id")
 	private Unidade unidade;
-	
+
+	@Transient
+	private List<Responsavel> responsaveis = new ArrayList<>();
 	
 	public Aluno() {
 		super();
@@ -228,6 +231,14 @@ public class Aluno implements Serializable {
 
 	public void setResponsavel(Responsavel responsavel) {
 		this.responsavel = responsavel;
+	}
+
+	public List<Responsavel> getResponsaveis() {
+		return responsaveis;
+	}
+
+	public void setResponsaveis(List<Responsavel> responsaveis) {
+		this.responsaveis = responsaveis;
 	}
 
 	@Override
