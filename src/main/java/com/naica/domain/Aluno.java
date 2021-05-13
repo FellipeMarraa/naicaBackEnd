@@ -40,7 +40,7 @@ public class Aluno implements Serializable {
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
 	
-	@JsonBackReference
+//	@JsonBackReference
 	@ManyToMany(mappedBy = "alunos")
 	private List<Responsavel> responsaveis;
 

@@ -43,7 +43,7 @@ public class Responsavel implements Serializable {
     private String observacao;
     private String telefones;
 
-    @JsonManagedReference
+//    @JsonManagedReference
     @ManyToMany
     @JoinTable(name = "RESPONSAVEL_ALUNO", joinColumns = @JoinColumn(name = "responsavel_id"), inverseJoinColumns = @JoinColumn(name = "aluno_id"))
     private List<Aluno> alunos = new ArrayList<>();
