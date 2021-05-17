@@ -104,15 +104,16 @@ public class DBService {
         coordenadorRepository.saveAll(Arrays.asList(cLuizote, cMorumbi, cLagoinha, cTibery, cMartaHelena, cMansour, cPequis, cJardimCelia, cTapuirama, cCanaa, cTocantins));
         unidadeRepository.saveAll(Arrays.asList(luizote, morumbi, lagoinha, tibery, martaHelena, mansour, pequis, jardimCelia, tapuirama, canaa, tocantins));
 
-        Responsavel responsavel = new Responsavel(null,"lailla", null,null,null,null,null,null,null,null,null,null,null,null);
+        Responsavel responsavel1 = new Responsavel(null,"lailla", null,null,null,null,null,null,null,null,null,null,null,null);
         Responsavel responsavel2 = new Responsavel(null,"bruna", null,null,null,null,null,null,null,null,null,null,null,null);
 
-        responsavelRepository.saveAll(Arrays.asList(responsavel,responsavel2));
+        responsavelRepository.saveAll(Arrays.asList(responsavel1,responsavel2));
 
         Aluno aluno1 = new Aluno(null,"kael",null,20,21,null,null,null,false,"messias",null,null,false,null,responsavel2,null);
+        Aluno aluno2 = new Aluno(null,"lailla",null,20,21,null,null,null,false,"honorio",null,null,false,null,responsavel1,null);
 
 
-        alunoRepository.saveAll(Arrays.asList(aluno1));
+        alunoRepository.saveAll(Arrays.asList(aluno1,aluno2));
 
 //        Responsavel responsavel1 = new Responsavel(null,"samia",null,null,null,null,null,null,null,null,null,null,null,null);
 //        Aluno aluno1 = new Aluno(null,"lailla",null,20,21,null,null,null,false,"messias",null,null,false,null,responsavel1,null);
