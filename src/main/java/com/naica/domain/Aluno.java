@@ -35,8 +35,8 @@ public class Aluno implements Serializable {
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
 
-	@JsonManagedReference
-	@ManyToOne
+//	@JsonManagedReference
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name= "responsavel_id")
 	private Responsavel responsavel;
 

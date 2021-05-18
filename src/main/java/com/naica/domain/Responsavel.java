@@ -35,7 +35,7 @@ public class Responsavel implements Serializable {
     private String observacao;
     private String telefones;
 
-    @JsonBackReference
+//    @JsonBackReference
     @JsonIgnore
     @OneToMany(mappedBy = "responsavel")
     private List<Aluno> alunos = new ArrayList<>();
