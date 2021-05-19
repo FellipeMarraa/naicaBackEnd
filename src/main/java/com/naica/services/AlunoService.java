@@ -117,15 +117,4 @@ public class AlunoService {
 
     }
 
-
-    public boolean geraResponsavel(List<Aluno> alunoList) {
-        alunoList.forEach(this::geraResponsavelAluno);
-        return true;
-    }
-
-    private void geraResponsavelAluno(Aluno aluno) {
-        LinkedList<Responsavel> responsaveis= new LinkedList<Responsavel>();
-        aluno.setResponsaveis(responsaveis);
-        repository.save(aluno);
-    }
 }

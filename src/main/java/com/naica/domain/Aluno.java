@@ -35,7 +35,7 @@ public class Aluno implements Serializable {
 	private boolean desacompanhado;
 	private String autorizadoBuscar;
 
-//	@JsonManagedReference
+	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name= "responsavel_id")
 	private Responsavel responsavel;
@@ -44,8 +44,6 @@ public class Aluno implements Serializable {
 	@JoinColumn(name="unidade_id")
 	private Unidade unidade;
 
-	@Transient
-	private List<Responsavel> responsaveis = new ArrayList<>();
 	
 	public Aluno() {
 		super();
@@ -231,14 +229,6 @@ public class Aluno implements Serializable {
 
 	public void setResponsavel(Responsavel responsavel) {
 		this.responsavel = responsavel;
-	}
-
-	public List<Responsavel> getResponsaveis() {
-		return responsaveis;
-	}
-
-	public void setResponsaveis(List<Responsavel> responsaveis) {
-		this.responsaveis = responsaveis;
 	}
 
 	@Override

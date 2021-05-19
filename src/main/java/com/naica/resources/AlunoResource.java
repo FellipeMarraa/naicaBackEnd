@@ -30,7 +30,6 @@ public class AlunoResource {
     @Autowired
     private AlunoService service;
 
-
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Aluno getById(@PathVariable Integer id) {
         return service.find(id);
@@ -71,12 +70,6 @@ public class AlunoResource {
 
         return list;
     }
-
-@RequestMapping(value = "/gera-responsavel",method = RequestMethod.POST)
-        public boolean geraResponsavel(List<Aluno> alunoList){
-        return service.geraResponsavel(alunoList);
-}
-
 
 
 }
