@@ -28,11 +28,11 @@ public class Aluno implements Serializable {
 	private String sexo;
 	private String nisAtendido;
 	private Date dataMatricula;
-	private boolean desligado;
+	private String desligado;
 	private String escola;
 	private String anoEscolar;
 	private String periodoEscolar;
-	private boolean desacompanhado;
+	private String desacompanhado;
 	private String autorizadoBuscar;
 
 	@JsonBackReference
@@ -51,8 +51,8 @@ public class Aluno implements Serializable {
 
 
 	public Aluno(Integer id, String nome, Date dataNascimento, Integer idadeAtual,
-			Integer idadeInicial, String sexo, String nisAtendido, Date dataMatricula, boolean desligado, String escola,
-			String anoEscolar,String periodoEscolar , boolean desacompanhado, String autorizadoBuscar,Responsavel responsavel ,Unidade unidade) {
+			Integer idadeInicial, String sexo, String nisAtendido, Date dataMatricula, String desligado, String escola,
+			String anoEscolar,String periodoEscolar , String desacompanhado, String autorizadoBuscar,Responsavel responsavel ,Unidade unidade) {
 		super();
 		
 		this.id = id;
@@ -164,15 +164,13 @@ public class Aluno implements Serializable {
 	}
 
 
-	public boolean isDesligado() {
+	public String getDesligado() {
 		return desligado;
 	}
 
-
-	public void setDesligado(boolean desligado) {
+	public void setDesligado(String desligado) {
 		this.desligado = desligado;
 	}
-
 
 	public String getEscola() {
 		return escola;
@@ -204,15 +202,13 @@ public class Aluno implements Serializable {
 	}
 
 
-	public boolean isDesacompanhado() {
+	public String getDesacompanhado() {
 		return desacompanhado;
 	}
 
-
-	public void setDesacompanhado(boolean desacompanhado) {
+	public void setDesacompanhado(String desacompanhado) {
 		this.desacompanhado = desacompanhado;
 	}
-
 
 	public String getAutorizadoBuscar() {
 		return autorizadoBuscar;

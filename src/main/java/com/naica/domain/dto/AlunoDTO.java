@@ -37,7 +37,7 @@ public class AlunoDTO implements Serializable {
 //	@NotEmpty(message = "O campo data de matrícula não pode ser vazio")
 	private Date dataMatricula;
 
-	private boolean desligado;
+	private String desligado;
 //	@NotEmpty(message = "O campo escola não pode ser vazio")
 	private String escola;
 //	@NotEmpty(message = "O campo ano escolar não pode ser vazio")
@@ -45,7 +45,7 @@ public class AlunoDTO implements Serializable {
 //	@NotEmpty(message = "O campo período escolar não pode ser vazio")
 	private String periodoEscolar;
 //	@NotEmpty(message = "O campo desacompanhado não pode ser vazio")
-	private boolean desacompanhado;
+	private String desacompanhado;
 
 	private String autorizadoBuscar;
 
@@ -71,11 +71,11 @@ public class AlunoDTO implements Serializable {
 		this.sexo = aluno.getSexo();
 		this.nisAtendido = aluno.getNisAtendido();
 		this.dataMatricula = aluno.getDataMatricula();
-		this.desligado = aluno.isDesligado();
+		this.desligado = aluno.getDesligado();
 		this.escola = aluno.getEscola();
 		this.anoEscolar = aluno.getAnoEscolar();
 		this.periodoEscolar = aluno.getPeriodoEscolar();
-		this.desacompanhado = aluno.isDesacompanhado();
+		this.desacompanhado = aluno.getDesacompanhado();
 		this.autorizadoBuscar = aluno.getAutorizadoBuscar();
 		this.responsavel = aluno.getResponsavel();
 	}
@@ -169,16 +169,13 @@ public class AlunoDTO implements Serializable {
 		this.dataMatricula = dataMatricula;
 	}
 
-
-	public boolean isDesligado() {
+	public String getDesligado() {
 		return desligado;
 	}
 
-
-	public void setDesligado(boolean desligado) {
+	public void setDesligado(String desligado) {
 		this.desligado = desligado;
 	}
-
 
 	public String getEscola() {
 		return escola;
@@ -210,15 +207,13 @@ public class AlunoDTO implements Serializable {
 	}
 
 
-	public boolean isDesacompanhado() {
+	public String getDesacompanhado() {
 		return desacompanhado;
 	}
 
-
-	public void setDesacompanhado(boolean desacompanhado) {
+	public void setDesacompanhado(String desacompanhado) {
 		this.desacompanhado = desacompanhado;
 	}
-
 
 	public String getAutorizadoBuscar() {
 		return autorizadoBuscar;

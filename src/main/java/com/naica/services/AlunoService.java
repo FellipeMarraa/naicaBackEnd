@@ -94,24 +94,24 @@ public class AlunoService {
         newAluno.setSexo(aluno.getSexo());
         newAluno.setNisAtendido(aluno.getNisAtendido());
         newAluno.setDataMatricula(aluno.getDataMatricula());
-        newAluno.setDesligado(aluno.isDesligado());
+        newAluno.setDesligado(aluno.getDesligado());
         newAluno.setEscola(aluno.getEscola());
         newAluno.setAnoEscolar(aluno.getAnoEscolar());
         newAluno.setPeriodoEscolar(aluno.getPeriodoEscolar());
-        newAluno.setDesacompanhado(aluno.isDesacompanhado());
+        newAluno.setDesacompanhado(aluno.getDesacompanhado());
         newAluno.setAutorizadoBuscar(aluno.getAutorizadoBuscar());
         newAluno.setResponsavel(aluno.getResponsavel());
     }
 
 
     public Aluno fromDTO(AlunoDTO alunoDTO) {
-        return new Aluno(alunoDTO.getId(), alunoDTO.getNome(), alunoDTO.getDataNascimento(), alunoDTO.getIdadeAtual(),alunoDTO.getIdadeInicial(), alunoDTO.getSexo(),alunoDTO.getNisAtendido() , alunoDTO.getDataMatricula(), alunoDTO.isDesligado(), alunoDTO.getEscola(), alunoDTO.getAnoEscolar(), alunoDTO.getPeriodoEscolar(), alunoDTO.isDesacompanhado(), alunoDTO.getAutorizadoBuscar(), alunoDTO.getResponsavel(),alunoDTO.getUnidade());
+        return new Aluno(alunoDTO.getId(), alunoDTO.getNome(), alunoDTO.getDataNascimento(), alunoDTO.getIdadeAtual(),alunoDTO.getIdadeInicial(), alunoDTO.getSexo(),alunoDTO.getNisAtendido() , alunoDTO.getDataMatricula(), alunoDTO.getDesligado(), alunoDTO.getEscola(), alunoDTO.getAnoEscolar(), alunoDTO.getPeriodoEscolar(), alunoDTO.getDesacompanhado(), alunoDTO.getAutorizadoBuscar(), alunoDTO.getResponsavel(),alunoDTO.getUnidade());
 
     }
 
     public Aluno fromDTO(AlunoNewDTO alunoNewDTO) {
 
-         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), alunoNewDTO.getDataNascimento(), alunoNewDTO.getIdadeAtual(),alunoNewDTO.getIdadeInicial(), alunoNewDTO.getSexo(),alunoNewDTO.getNisAtendido() , alunoNewDTO.getDataMatricula(), alunoNewDTO.isDesligado(), alunoNewDTO.getEscola(), alunoNewDTO.getAnoEscolar(), alunoNewDTO.getPeriodoEscolar(), alunoNewDTO.isDesacompanhado(), alunoNewDTO.getAutorizadoBuscar(), alunoNewDTO.getResponsavel(), alunoNewDTO.getUnidade());
+         Aluno aluno = new Aluno(null, alunoNewDTO.getNome(), alunoNewDTO.getDataNascimento(), alunoNewDTO.getIdadeAtual(),alunoNewDTO.getIdadeInicial(), alunoNewDTO.getSexo(),alunoNewDTO.getNisAtendido() , alunoNewDTO.getDataMatricula(), alunoNewDTO.getDesligado(), alunoNewDTO.getEscola(), alunoNewDTO.getAnoEscolar(), alunoNewDTO.getPeriodoEscolar(), alunoNewDTO.getDesacompanhado(), alunoNewDTO.getAutorizadoBuscar(), alunoNewDTO.getResponsavel(), alunoNewDTO.getUnidade());
 
          return aluno;
 
