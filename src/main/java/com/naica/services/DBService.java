@@ -48,17 +48,17 @@ public class DBService {
         Unidade tocantins = new Unidade(null, "Naica Tocantins", " Sem endereço no momento ");
 
 
-        Coordenador cLuizote = new Coordenador(null, "Claudecir Santana", "claudecir.santana", "kady_bio@yahoo.com.br", bCryptPasswordEncoder.encode("Senha123"), luizote);
-        Coordenador cMorumbi = new Coordenador(null, "Danielle Castro", "danielle.castro", "Não possui", bCryptPasswordEncoder.encode("Senha123"), morumbi);
-        Coordenador cLagoinha = new Coordenador(null, "Elga Carrijo", "elga.carrijo", "Não possui", bCryptPasswordEncoder.encode("Senha123"), lagoinha);
-        Coordenador cTibery = new Coordenador(null, "Miriam Lima", "miriam.lima", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tibery);
-        Coordenador cMartaHelena = new Coordenador(null, "Clausmei Reis", "clausmei.reis", "Não possui", bCryptPasswordEncoder.encode("Senha123"), martaHelena);
-        Coordenador cMansour = new Coordenador(null, "Danuza Franco", "danuza.franco", "Não possui", bCryptPasswordEncoder.encode("Senha123"), mansour);
-        Coordenador cPequis = new Coordenador(null, "Thays Gonçalves", "thays.gonçalves", "Não possui", bCryptPasswordEncoder.encode("Senha123"), pequis);
-        Coordenador cJardimCelia = new Coordenador(null, "Alan Moreira", "alan.moreira", "Não possui", bCryptPasswordEncoder.encode("Senha123"), jardimCelia);
-        Coordenador cTapuirama = new Coordenador(null, "Angélica Lemes", "angelica.lemes", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tapuirama);
-        Coordenador cCanaa = new Coordenador(null, "Daniella Sales", "daniella.sales", "Não possui", bCryptPasswordEncoder.encode("Senha123"), canaa);
-        Coordenador cTocantins = new Coordenador(null, "Laís Barcelos", "lais.barcelos", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tocantins);
+        Coordenador cLuizote = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), luizote);
+        Coordenador cMorumbi = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), morumbi);
+        Coordenador cLagoinha = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), lagoinha);
+        Coordenador cTibery = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tibery);
+        Coordenador cMartaHelena = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), martaHelena);
+        Coordenador cMansour = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), mansour);
+        Coordenador cPequis = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), pequis);
+        Coordenador cJardimCelia = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), jardimCelia);
+        Coordenador cTapuirama = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tapuirama);
+        Coordenador cCanaa = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), canaa);
+        Coordenador cTocantins = new Coordenador(null, "nome_Coordenador", "nome_Coordenador", "Não possui", bCryptPasswordEncoder.encode("Senha123"), tocantins);
 
         luizote.setCoordenador(cLuizote);
         cLuizote.setUnidade(luizote);
